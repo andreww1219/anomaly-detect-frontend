@@ -1,0 +1,13 @@
+html, body, #app{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  /*--bkg-clr: rgb(243,243,243) ;*/
+  --bkg-clr: #fff ;
+
+  --font-clr: rgb(140,10,65);
+  --btn-clr: rgb(178,179,182);
+}
