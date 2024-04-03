@@ -32,18 +32,18 @@ const tableData =  ref([
 const log = ref('carpet<br>cuda<br>' +
     'epoch [1/200], loss:1.0517<br>'+
     'epoch [2/200], loss:0.6470<br>'+
-    'epoch [3/200], ioss:0.5504<br>'+
-    'epoch [4/200], ioss:0.4894<br>'+
-    'epoch [5/200], ioss:0.4489<br>'+
-    'epoch [6/200], ioss:0.4226<br>'+
-    'epoch [7/200], ioss:0.3953<br>'+
-    'epoch [8/200], ioss:0.3702<br>'+
-    'epoch [9/200], ioss:0.3552<br>'+
-    'epoch [10/200], ioss:0.3418<br>'+
-    'epoch [11/200], ioss:0.3383<br>'+
-    'epoch [12/200], ioss:0.3231<br>'+
-    'epoch [13/200], ioss:0.3160<br>'+
-    'epoch [14/200], ioss:0.3095<br>'
+    'epoch [3/200], loss:0.5504<br>'+
+    'epoch [4/200], loss:0.4894<br>'+
+    'epoch [5/200], loss:0.4489<br>'+
+    'epoch [6/200], loss:0.4226<br>'+
+    'epoch [7/200], loss:0.3953<br>'+
+    'epoch [8/200], loss:0.3702<br>'+
+    'epoch [9/200], loss:0.3552<br>'+
+    'epoch [10/200], loss:0.3418<br>'+
+    'epoch [11/200], loss:0.3383<br>'+
+    'epoch [12/200], loss:0.3231<br>'+
+    'epoch [13/200], loss:0.3160<br>'+
+    'epoch [14/200], loss:0.3095<br>'
 )
 </script>
 
