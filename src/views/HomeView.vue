@@ -19,20 +19,22 @@ const upload = (e) => {
   if(file){
     input.value.src = window.URL.createObjectURL(file)
 
-    let formData = new FormData()
-    formData.append('file', file)
-    isShow.value = 1
-    setTimeout(() =>{
-      isShow.value = 2
-      tableData.value.pop()
-      tableData.value[0] = {id: '0', cnt: '1'}
-    }, 1500)
   }else{
     alert('获取图片失败')
   }
 }
 
-
+let startDetecting = ref()
+const detect = ()=>{
+  startDetecting.value.innerHTML = '检测中'
+  isShow.value = 1
+  setTimeout(() =>{
+    isShow.value = 2
+    tableData.value.pop()
+    tableData.value[0] = {id: '0', cnt: '1'}
+    startDetecting.value.innerHTML = '开始检测'
+  }, 1500)
+}
 // print log
 
 const LOG = ['carpet<br>',
@@ -260,7 +262,9 @@ const LOG = ['carpet<br>',
 
 
 let log = ref('')
+let startLearning = ref()
 const learn = () => {
+  startLearning.value.innerHTML = '参数学习中'
   let len = LOG.length
   for(let i = 0; i < len; ++i){
     setTimeout(() => {
@@ -268,6 +272,8 @@ const learn = () => {
     }, 120 * (i + 1))
   }
   setTimeout(() =>{
+    startLearning.value.innerHTML = '开始参数学习'
+
     alert('模型训练完成，可进行检测')
   }, 120 * len)
 }
@@ -312,7 +318,7 @@ const download = () => {
           <div class="btn"> 学习率：
             <input type="number" value="0.001"></div>
           <div class="btn"> 训练轮数
-            <input type="number" value="100"></div>
+            <input type="number" value="200"></div>
         </div>
       </div>
 
@@ -327,7 +333,7 @@ const download = () => {
       <div class="control-item">
         <div class="title">自学习控制</div>
         <div class="btns">
-          <div class="btn" @click="learn"> 开始参数学习</div>
+          <div class="btn" @click="learn" ref="startLearning"> 开始参数学习</div>
           <div class="btn"> 停止学习</div>
         </div>
       </div>
@@ -335,7 +341,7 @@ const download = () => {
       <div class="control-item">
         <div class="title">在线检测控制</div>
         <div class="btns">
-          <div class="btn"> 开始检测</div>
+          <div class="btn" @click="detect" ref="startDetecting"> 开始检测</div>
           <div class="btn"> 停止检测</div>
         </div>
       </div>
