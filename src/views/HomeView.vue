@@ -6,6 +6,7 @@ import {ref} from "vue";
 const controlStore = useControlStore()
 
 let input = ref()
+let output = ref()
 const imgUpload = ref()
 const isShow = ref(0)
 const tableData =  ref([
@@ -271,6 +272,14 @@ const learn = () => {
   }, 120 * len)
 }
 
+// 保存
+
+const download = () => {
+  var alink = document.createElement("a");
+  alink.href = output.value.src;
+  alink.download = "output.png";
+  alink.click();
+}
 
 </script>
 
@@ -334,7 +343,7 @@ const learn = () => {
       <div class="control-item">
         <div class="title">系统设置</div>
         <div class="btns">
-          <div class="btn"> 保存</div>
+          <div class="btn" @click="download"> 保存</div>
           <div class="btn"> 退出系统</div>
         </div>
 
@@ -354,7 +363,7 @@ const learn = () => {
         <div class="title">检测结果</div>
         <img v-if="isShow==0" src="@/assets/img/piclook.png" class="image"/>
         <img v-if="isShow==1" src="@/assets/img/loading.gif" class="image"/>
-        <img v-if="isShow==2" src="@/assets/img/0_ad.png" class="image"/>
+        <img v-if="isShow==2" ref="output" src="@/assets/img/0_ad.png" class="image"/>
       </div>
       <div class="record">
         <div class="title">记录</div>
